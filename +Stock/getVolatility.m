@@ -1,6 +1,5 @@
 function [ tau ,volatility ] = getVolatility( Sn,daysTrading )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+%getVolatility Calculates historical volatility of returns for stock array Sn. 
 
 M = size(Sn,1);
 Sn_1 = Sn(2:M,1);
