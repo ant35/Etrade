@@ -1,12 +1,15 @@
+function [v0] = V0(option)
 format short g;
 format compact;
+import Stock.*;
+import Option.* Option.ETF.Strategy.makeOptionTree;
 
 monthly = 12;
 weekly = monthly*4; %set to adjust interest rate
 daily = weekly*5.25;
-t = 14; %days until maturity
+t = 30; %days until maturity
 %Grab stock prices
-Sn = AAPL(:,5);
+Sn = grabPrices('SPY',30);
 %Get volatility
 vol = getVolatility(Sn,t);
 
@@ -27,11 +30,12 @@ optionType = 'call';
 disp(strcat("d:",num2str(d),",e^(1+r)/freq:",num2str(interest),", u:",num2str(u)));
 if d<interest && interest<u
     tree = makeTree(iterations,u,d,S0);
-    optiontree = makeOptionTree(iterations,tree,d,interest,u,K,optionType,weekly);
+    optiontree = makeOptionTree(iterations,tree,d,interest,u,c);
     %display trees
     disp('Projected stock path: ');disp(transpose(tree));disp("------");
     disp(["Binomial Option Model: S0: " S0 "Strike: " K ]);disp(transpose(optiontree));
 else
     error("arbitrage exists");
+end
 end
 

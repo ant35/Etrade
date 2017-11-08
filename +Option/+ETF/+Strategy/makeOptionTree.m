@@ -1,11 +1,11 @@
-function [ optiontree ] = makeOptionTree(n,tree,d,r,u,option)
+function [ optiontree ] = makeOptionTree(tree,d,r,u,option)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
 optiontree = tree;
-shifts = n;
+shifts = option.maturity;
+n = option.maturity;
 top = 2;
-K = option.K;
 bottom = 1;
 topRow = n;
 bottomRow = n+1;
@@ -62,6 +62,6 @@ end
 shifts = 2*n+1;
 row = n+1;
 for i=1:2:shifts
-    optiontree(row,i) = value(optiontree(row,i),K,type);
+    optiontree(row,i) = value(option,optiontree(row,i));
 end
 

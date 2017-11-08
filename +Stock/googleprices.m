@@ -32,8 +32,6 @@ if ~exist('exportFormat', 'var')
     exportFormat = 'csv';
 end
 
-disp(startDate);
-disp(endDate);
 % Download the data
 fileName = urlwrite(['http://finance.google.com/finance/historical?q=' stockTicker '&startdate=' startDate '&enddate=' endDate '&output=' exportFormat], ['test.' exportFormat]);
 

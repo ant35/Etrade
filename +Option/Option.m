@@ -6,6 +6,7 @@ classdef Option
         strike
         premium
         maturity
+        underlying
     end
     
     methods

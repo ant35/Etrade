@@ -7,10 +7,11 @@ classdef CallOption < Option.Option
     
     methods
         %Constructor
-        function obj = CallOption(k, p, t)
+        function obj = CallOption(k, p, t, under)
             obj.strike = k;
             obj.premium = p;
             obj.maturity = t;
+            obj.underlying = under;
         end
     
     

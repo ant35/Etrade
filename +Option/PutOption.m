@@ -6,10 +6,11 @@ classdef PutOption < Option.Option
     
     methods
         %Constructor
-        function obj = PutOption(k,p,t)
+        function obj = PutOption(k,p,t, under)
             obj.strike = k;
             obj.premium = p;
             obj.maturity = t;
+            obj.underlying = under;
         end
         
         function v = value(p,x)

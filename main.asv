@@ -1,0 +1,12 @@
+import Option.* Option.ETF.Strategy.*;
+import Option.ETF.Strategy.Straddle.*;
+import Stock.grabPrices;
+warning('off','stats:dataset:ModifiedVarnames'); %supress warning
+p = PutOption(258,.4,2,'SPY');
+
+initial = 258;
+S0 = 259.5;
+[v,vol,mytree,myoptiontree] = V0(p,S0);
+iv = getImpliedVolatility(p,initial,0.0235);
+disp(['Implied volatiliy: ' num2str(iv)]);
+[~,iv,myimptree,myimpoptiontree] = V0(p,S0,iv);
