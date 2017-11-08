@@ -1,5 +1,5 @@
 function [ prices ] = grabPrices( ticker, days)
-%UNTITLED Grabs historical closing prices as far back as you specify.
+%grabPrices Grabs historical closing prices as far back as you specify.
 %   max range one year, only takes stocks traded in NASDAQ
 import Stock.googleprices;
 start = 'Sep+25,2017'; %filler dates, do not function correctly
